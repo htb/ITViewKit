@@ -4,6 +4,7 @@ import PackageDescription
 
 let package = Package(
     name: "ITViewKit",
+    platforms: [.iOS(.v11)],
     products: [
         .library(name: "ITViewKit", targets: ["ITViewKit"]),
     ],

@@ -34,6 +34,19 @@ public extension UIView
         NSLayoutConstraint.activate([topC, bottomC, leftC, rightC])
     }
 
+    func addSnappingSubviewToMargins(_ subview: UIView)
+    {
+        self.addSubview(subview)
+        subview.translatesAutoresizingMaskIntoConstraints = false
+        let topC = subview.topAnchor.constraint(equalTo: self.layoutMarginsGuide.topAnchor)
+        let bottomC = subview.bottomAnchor.constraint(equalTo: self.layoutMarginsGuide.bottomAnchor)
+        let leftC = subview.leftAnchor.constraint(equalTo: self.layoutMarginsGuide.leftAnchor)
+        let rightC = subview.rightAnchor.constraint(equalTo: self.layoutMarginsGuide.rightAnchor)
+        bottomC.priority = UILayoutPriority(rawValue: 999)
+        rightC.priority = UILayoutPriority(rawValue: 999)
+        NSLayoutConstraint.activate([topC, bottomC, leftC, rightC])
+    }
+
     func addSnappingSubviewsVertical(_ subviews: [UIView], spacing: CGFloat = 0, insets: UIEdgeInsets = .zero)
     {
         var previous: UIView? = nil

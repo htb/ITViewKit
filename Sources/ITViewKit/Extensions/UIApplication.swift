@@ -14,4 +14,14 @@ extension UIApplication
             })
         }
     }
+
+    public static func openURL(_ urlString: String)
+    {
+        guard let url = URL(string: urlString) else { return }
+
+        if self.shared.canOpenURL(url) {
+            self.shared.open(url, completionHandler: { (success) in
+            })
+        }
+    }
 }
